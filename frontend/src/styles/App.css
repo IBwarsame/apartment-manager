@@ -1,0 +1,1128 @@
+/* Your Neutral Color Palette */
+:root {
+    --white: #FFFFFF;
+    --light-beige: #E6DCD3;
+    --medium-beige: #B4A79E;
+    --warm-beige: #BDA18C;
+    --dark-brown: #3F352C;
+    --black: #000000;
+    --background: #F5F1ED;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--background);
+    color: var(--dark-brown);
+    line-height: 1.6;
+  }
+  
+  .app {
+    min-height: 100vh;
+    background-color: var(--background);
+  }
+  
+  .header {
+    background-color: var(--dark-brown);
+    color: var(--white);
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+  }
+  
+  .header h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+  
+  .main-content {
+    padding: 3rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  
+  .stat-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(63, 53, 44, 0.08);
+    border: 1px solid var(--light-beige);
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--dark-brown);
+    margin-bottom: 0.5rem;
+  }
+  
+  .stat-label {
+    font-size: 0.9rem;
+    color: var(--medium-beige);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .apartments-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .apartments-title {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--dark-brown);
+    letter-spacing: 2px;
+  }
+  
+  .add-apartment-btn {
+    background: var(--dark-brown);
+    color: var(--white);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  .add-apartment-btn:hover {
+    background: var(--black);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+  
+  .apartments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+  
+  .apartment-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 6px 25px rgba(63, 53, 44, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid var(--light-beige);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .apartment-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    transition: all 0.3s ease;
+  }
+  
+  .apartment-card.available::before {
+    background: var(--medium-beige);
+  }
+  
+  .apartment-card.occupied::before {
+    background: var(--warm-beige);
+  }
+  
+  .apartment-card.maintenance::before {
+    background: var(--dark-brown);
+  }
+  
+  .apartment-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(63, 53, 44, 0.15);
+  }
+  
+  .apartment-number {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--dark-brown);
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+  }
+  
+  .apartment-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  
+  .detail-item {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .detail-label {
+    font-size: 0.8rem;
+    color: var(--medium-beige);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.25rem;
+  }
+  
+  .detail-value {
+    font-weight: 500;
+    color: var(--dark-brown);
+    font-size: 1rem;
+  }
+  
+  .rent-price {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--dark-brown);
+    margin: 1.5rem 0;
+    text-align: center;
+    padding: 1rem;
+    background: var(--light-beige);
+    border-radius: 8px;
+  }
+  
+  .status-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  .status-available {
+    background-color: var(--light-beige);
+    color: var(--dark-brown);
+  }
+  
+  .status-occupied {
+    background-color: var(--warm-beige);
+    color: var(--white);
+  }
+  
+  .status-maintenance {
+    background-color: var(--medium-beige);
+    color: var(--white);
+  }
+  
+  .amenities {
+    margin-top: 1rem;
+  }
+  
+  .amenities-label {
+    font-size: 0.8rem;
+    color: var(--medium-beige);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .amenities-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .amenity-tag {
+    background: var(--light-beige);
+    color: var(--dark-brown);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+  
+  .no-apartments {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--medium-beige);
+  }
+  
+  .no-apartments h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--dark-brown);
+  }
+  
+  .loading {
+    text-align: center;
+    padding: 4rem;
+    font-size: 1.2rem;
+    color: var(--medium-beige);
+  }
+  /* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background: var(--white);
+    border-radius: 16px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    border-bottom: 1px solid var(--light-beige);
+  }
+  
+  .modal-header h2 {
+    color: var(--dark-brown);
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+  
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--medium-beige);
+    cursor: pointer;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+  
+  .close-btn:hover {
+    background: var(--light-beige);
+    color: var(--dark-brown);
+  }
+  
+  /* Form Styles */
+  .apartment-form {
+    padding: 2rem;
+  }
+  
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--dark-brown);
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--light-beige);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--dark-brown);
+    background: var(--white);
+    transition: all 0.3s ease;
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--medium-beige);
+    box-shadow: 0 0 0 3px rgba(180, 167, 158, 0.1);
+  }
+  
+  .form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  
+  .form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--light-beige);
+  }
+  
+  .cancel-btn {
+    background: transparent;
+    color: var(--medium-beige);
+    border: 1px solid var(--medium-beige);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .cancel-btn:hover {
+    background: var(--light-beige);
+    color: var(--dark-brown);
+  }
+  
+  .submit-btn {
+    background: var(--dark-brown);
+    color: var(--white);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .submit-btn:hover:not(:disabled) {
+    background: var(--black);
+  }
+  
+  .submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+/* Error Message */
+.error-message {
+    background: #fee;
+    color: #c33;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border: 1px solid #fcc;
+    font-size: 0.9rem;
+  }
+  
+  /* Form Helper Text */
+  .form-group small {
+    display: block;
+    margin-top: 0.25rem;
+    color: var(--medium-beige);
+    font-size: 0.8rem;
+  }
+  
+  /* Apartment Header */
+  .apartment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+  
+  /* Delete Button */
+  .delete-btn {
+    background: var(--medium-beige);
+    color: var(--white);
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+  }
+  
+  .delete-btn:hover {
+    background: #c33;
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  
+  .apartment-card:hover .delete-btn {
+    opacity: 1;
+  }
+  /* Confirmation Dialog Styles */
+.dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+  }
+  
+  .dialog-content {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .dialog-content p {
+    color: var(--dark-brown);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .dialog-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  
+  .dialog-btn {
+    flex: 1;
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+  }
+  
+  .confirm {
+    background: var(--warm-beige);
+    color: var(--white);
+    border: none;
+  }
+  
+  .confirm:hover {
+    background: var(--medium-beige);
+  }
+  
+  .cancel {
+    background: var(--light-beige);
+    color: var(--dark-brown);
+    border: none;
+  }
+  
+  .cancel:hover {
+    background: var(--medium-beige);
+    color: var(--white);
+  }
+  /* Tenant-specific styles */
+
+/* Tenant Actions (Edit + Delete buttons) */
+.tenant-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  
+.edit-btn {
+    background: var(--warm-beige);
+    color: var(--white);
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+  }
+  
+.edit-btn:hover {
+    background: var(--medium-beige);
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  
+.tenant-card:hover .edit-btn {
+    opacity: 1;
+  }
+.tenants-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 2rem;
+  }
+  
+  .tenant-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 6px 25px rgba(63, 53, 44, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid var(--light-beige);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .tenant-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    transition: all 0.3s ease;
+  }
+  
+  .tenant-card.status-active::before {
+    background: #4CAF50;
+  }
+  
+  .tenant-card.status-pending::before {
+    background: #FF9800;
+  }
+  
+  .tenant-card.status-ended::before {
+    background: var(--medium-beige);
+  }
+  
+  .tenant-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(63, 53, 44, 0.15);
+  }
+  
+  .tenant-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+  
+  .tenant-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--dark-brown);
+    letter-spacing: 1px;
+  }
+  
+  .tenant-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  
+  .end-date {
+    margin: 1rem 0;
+    padding: 0.5rem;
+    background: var(--light-beige);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: var(--dark-brown);
+    text-align: center;
+  }
+  
+  /* Form styles for tenant form */
+  .tenant-form {
+    padding: 2rem;
+  }
+  
+  .tenant-form .form-group select option {
+    padding: 0.5rem;
+  }
+  /* Navigation tabs */
+.nav-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-content: center;
+  }
+  
+  .nav-tab {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+    padding: 0.75rem 2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .nav-tab:hover {
+    background: var(--white);
+    color: var(--dark-brown);
+  }
+  
+  .nav-tab.active {
+    background: var(--white);
+    color: var(--dark-brown);
+  }
+
+  
+  .tenant-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .tenant-details p {
+    margin: 0.25rem 0;
+  }
+  /* Payments Grid */
+.payments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 2rem;
+  }
+  
+  .payment-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 6px 25px rgba(63, 53, 44, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid var(--light-beige);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .payment-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    transition: all 0.3s ease;
+  }
+  
+  .payment-card.status-paid::before {
+    background: #4CAF50;
+  }
+  
+  .payment-card.status-pending::before {
+    background: #FF9800;
+  }
+  
+  .payment-card.status-overdue::before {
+    background: #F44336;
+  }
+  
+  .payment-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(63, 53, 44, 0.15);
+  }
+  
+  .payment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .payment-amount {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--dark-brown);
+  }
+  
+  .payment-status {
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .payment-status.status-paid {
+    background: #E8F5E8;
+    color: #2E7D32;
+  }
+  
+  .payment-status.status-pending {
+    background: #FFF3E0;
+    color: #F57C00;
+  }
+  
+  .payment-status.status-overdue {
+    background: #FFEBEE;
+    color: #C62828;
+  }
+  
+  .payment-details {
+    margin: 1.5rem 0;
+  }
+  
+  .payment-details .detail-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    padding: 0.25rem 0;
+  }
+  
+  .mark-paid-btn {
+    background: #4CAF50;
+    color: var(--white);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  .mark-paid-btn:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+  }
+  
+  /* Payment Form */
+  .payment-form {
+    padding: 2rem;
+  }
+
+  /* Maintenance Grid */
+.maintenance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 2rem;
+  }
+  
+  .maintenance-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 6px 25px rgba(63, 53, 44, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid var(--light-beige);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .maintenance-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    transition: all 0.3s ease;
+  }
+  
+  .maintenance-card.priority-urgent::before {
+    background: #F44336;
+  }
+  
+  .maintenance-card.priority-high::before {
+    background: #FF9800;
+  }
+  
+  .maintenance-card.priority-medium::before {
+    background: #2196F3;
+  }
+  
+  .maintenance-card.priority-low::before {
+    background: #4CAF50;
+  }
+  
+  .maintenance-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(63, 53, 44, 0.15);
+  }
+  
+  .maintenance-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+  
+  .maintenance-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--dark-brown);
+    margin: 0;
+    flex: 1;
+    margin-right: 1rem;
+  }
+  
+  .priority-badge {
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+  }
+  
+  .priority-badge.priority-urgent {
+    background: #FFEBEE;
+    color: #C62828;
+  }
+  
+  .priority-badge.priority-high {
+    background: #FFF3E0;
+    color: #F57C00;
+  }
+  
+  .priority-badge.priority-medium {
+    background: #E3F2FD;
+    color: #1565C0;
+  }
+  
+  .priority-badge.priority-low {
+    background: #E8F5E8;
+    color: #2E7D32;
+  }
+  
+  .maintenance-description {
+    color: var(--medium-beige);
+    margin: 1rem 0;
+    line-height: 1.5;
+  }
+  
+  .maintenance-details {
+    margin: 1.5rem 0;
+  }
+  
+  .maintenance-details .detail-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    padding: 0.25rem 0;
+  }
+  
+  .maintenance-details .status-reported {
+    color: #FF9800;
+    font-weight: 500;
+  }
+  
+  .maintenance-details .status-scheduled {
+    color: #2196F3;
+    font-weight: 500;
+  }
+  
+  .maintenance-details .status-in-progress {
+    color: #9C27B0;
+    font-weight: 500;
+  }
+  
+  .maintenance-details .status-completed {
+    color: #4CAF50;
+    font-weight: 500;
+  }
+  
+  .maintenance-actions {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .status-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    flex: 1;
+  }
+  
+  .schedule-btn {
+    background: #2196F3;
+    color: var(--white);
+  }
+  
+  .schedule-btn:hover {
+    background: #1976D2;
+  }
+  
+  .progress-btn {
+    background: #9C27B0;
+    color: var(--white);
+  }
+  
+  .progress-btn:hover {
+    background: #7B1FA2;
+  }
+  
+  .complete-btn {
+    background: #4CAF50;
+    color: var(--white);
+  }
+  
+  .complete-btn:hover {
+    background: #45A049;
+  }
+  
+  /* Maintenance Form */
+  .maintenance-form {
+    padding: 2rem;
+  }
+  /* Dashboard */
+.dashboard {
+    padding: 2rem 0;
+  }
+  
+  .dashboard-title {
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--dark-brown);
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+  }
+  
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .dashboard-section {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 6px 25px rgba(63, 53, 44, 0.08);
+    border: 1px solid var(--light-beige);
+  }
+  
+  .section-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--dark-brown);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .stat-item {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 8px;
+    background: var(--background);
+    transition: all 0.3s ease;
+  }
+  
+  .stat-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(63, 53, 44, 0.1);
+  }
+  
+  .stat-item.available {
+    background: #E8F5E8;
+  }
+  
+  .stat-item.occupied {
+    background: #FFF3E0;
+  }
+  
+  .stat-item.maintenance {
+    background: #FFEBEE;
+  }
+  
+  .stat-item.revenue {
+    background: #E3F2FD;
+  }
+  
+  .stat-item.pending {
+    background: #FFF3E0;
+  }
+  
+  .stat-item.paid {
+    background: #E8F5E8;
+  }
+  
+  .stat-item.overdue {
+    background: #FFEBEE;
+  }
+  
+  .stat-item.reported {
+    background: #FFF3E0;
+  }
+  
+  .stat-item.scheduled {
+    background: #E3F2FD;
+  }
+  
+  .stat-item.in-progress {
+    background: #F3E5F5;
+  }
+  
+  .stat-item.completed {
+    background: #E8F5E8;
+  }
+  
+  .stat-item.active {
+    background: #E8F5E8;
+  }
+  
+  .stat-item.ended {
+    background: #F5F5F5;
+  }
+  
+  .stat-item.occupancy {
+    background: #E3F2FD;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--dark-brown);
+    margin-bottom: 0.5rem;
+  }
+  
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--medium-beige);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }

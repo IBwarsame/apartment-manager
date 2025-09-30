@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  replicas: 2                    # Run 2 backend instances (load balancing!)
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: apartment-backend:latest
+        imagePullPolicy: Never    # Use local image (don't pull from registry)
+        ports:
+        - containerPort: 8000
+        env:
+        - name: NODE_ENV
+          value: production
+        - name: PORT
+          value: "5000"
+        - name: MONGODB_URL
+          value: mongodb://mongodb-service:27017/apartment_manager  # Uses K8s service!
+        - name: JWT_SECRET
+          value: kubernetes_secret_change_in_prod
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+spec:
+  selector:
+    app: backend
+  ports:
+  - port: 8000
+    targetPort: 8000
+  type: ClusterIP

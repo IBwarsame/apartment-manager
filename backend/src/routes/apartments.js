@@ -12,20 +12,17 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Get single apartment
-router.get('/:id', async (req, res) => {
-  try {
-    const apartment = await Apartment.findById(req.params.id);
-    if (!apartment) return res.status(404).json({ error: 'Apartment not found' });
-    res.json(apartment);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
-
-// Create apartment
+// Create apartment with duplicate check
 router.post('/', async (req, res) => {
   try {
+    // Check if apartment number already exists
+    const existingApartment = await Apartment.findOne({ number: req.body.number });
+    if (existingApartment) {
+      return res.status(400).json({ 
+        error: `Apartment ${req.body.number} already exists` 
+      });
+    }
+
     const apartment = new Apartment(req.body);
     const savedApartment = await apartment.save();
     res.status(201).json(savedApartment);
@@ -37,6 +34,19 @@ router.post('/', async (req, res) => {
 // Update apartment
 router.put('/:id', async (req, res) => {
   try {
+    // Check if apartment number is being changed and if it already exists
+    if (req.body.number) {
+      const existingApartment = await Apartment.findOne({ 
+        number: req.body.number, 
+        _id: { $ne: req.params.id } 
+      });
+      if (existingApartment) {
+        return res.status(400).json({ 
+          error: `Apartment ${req.body.number} already exists` 
+        });
+      }
+    }
+
     const apartment = await Apartment.findByIdAndUpdate(
       req.params.id, 
       req.body, 

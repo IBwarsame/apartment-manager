@@ -1,3 +1,4 @@
+// src/models/apartment.js
 const mongoose = require('mongoose');
 
 const apartmentSchema = new mongoose.Schema({
