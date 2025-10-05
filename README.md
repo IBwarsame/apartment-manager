@@ -173,4 +173,4 @@ apartment-manager/
 
 ---
 
-> “Built with patience, Docker, and gallons of coffee ☕”
+> “Built with a caffine addiction ”
